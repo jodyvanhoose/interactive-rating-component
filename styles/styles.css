@@ -6,11 +6,12 @@
   --clr-neutral-100:hsl(0, 0%, 100%);
   --clr-neutral-300: hsl(217, 12%, 63%);
   --clr-neutral-400: hsl(216, 12%, 54%);
+  --clr-neutral-700: hsl(215, 19%, 22%);
   --clr-neutral-800: hsl(213, 19%, 18%);
   --clr-neutral-900: hsl(216, 12%, 8%);
 
   /* font family*/
-  --ff-base: font-family: 'Overpass', sans-serif;
+  --ff-base: 'Overpass', sans-serif;
 
   /* font weight */
   --fw-regular: 400;
@@ -18,6 +19,7 @@
 }
 
 
+/* Resets */
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -66,3 +68,213 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 /*
+
+/* global styles */
+
+body{
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-300);
+  font-family: var(--ff-base);
+  font-size: 0.9375 rem;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+}
+
+/* utilities */
+
+.circle{
+  background: #FF7A59;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--clr-neutral-700);
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .7rem 1.5rem .8rem 0;
+  border-radius: 2rem;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .9rem;
+  cursor: pointer;
+  border: none;
+  transition: .2s;
+}
+
+.btn:is(:hover, :focus){
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-primary-400);
+}
+
+
+/* Attribution styles at bottom of card */
+.attribution { 
+  font-size: 11px; text-align: center; 
+}
+    
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
+
+
+/* card styles */
+
+.card{
+  background-color: var(--clr-neutral-800);
+  margin: 1.4rem;
+  padding: 1.6rem;
+  border-radius: 1rem;
+}
+
+h1, h2{
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-regular);
+  font-size: 1.5rem;
+}
+
+.card p{
+  font-weight: var(--fw-regular);
+  font-size: 1rem;
+}
+
+/* rating state styles */
+
+.rating{
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.rating p{
+  padding-bottom: 1rem;
+}
+
+
+.rating__flex{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.rating__num{
+  cursor: pointer;
+  transition: .2s;
+}
+
+.rating__num:hover{
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100);
+}
+
+.rating__num:focus{
+  background-color: var(--clr-neutral-400);
+}
+
+.active{
+  background-color: var(--clr-neutral-400);
+  color: var(--clr-neutral-100);
+}
+
+/* thank you state styles */
+
+.thanks{
+  display: none;
+  flex-direction: column;
+  gap: 1.4rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.thanks__img{
+  padding-bottom: .5rem;
+}
+
+.thanks__selected{
+  border-radius: 2rem;
+  background-color: var(--clr-neutral-700);
+  padding: .3rem 1rem .2rem;
+  color: var(--clr-primary-400);
+  text-align: center;
+  justify-self: center;
+}
+
+/* desktop styles */
+@media (min-width: 501px){
+  
+  .card{
+    max-width: 410px;
+    overflow: hidden;
+    padding: 2em;
+  }
+
+  .circle{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* desktop rating state styles */
+  .rating{
+    gap: 0;
+  }
+
+  .rating h1{
+    font-size: 1.6rem;
+    font-weight: var(--fw-bold);
+    margin: 0;
+    padding-top: 1.2em;
+    padding-bottom: 0;
+  }
+  
+  .rating p{
+    margin-top: 0;
+    padding: .5em 0 1.5em;
+  }
+
+  .rating__num{
+    padding: 1.6rem;
+  }
+
+  .btn{
+    margin-top: 1.5em;
+  }
+
+  /* desktop thank you state styles */
+  .thanks{
+    gap: .5rem;
+  }
+  .thanks__img{
+    padding: 1rem 0 1.3rem 0;
+  }
+
+  .thanks__selected{
+    margin-bottom: 1.5rem;
+  }
+
+  .thanks h2{
+    font-weight: var(--fw-bold);
+    font-size: 1.7rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .thanks__para{
+    margin-bottom: 1rem;
+  }
+}
